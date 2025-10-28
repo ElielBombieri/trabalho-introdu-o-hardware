@@ -1,0 +1,125 @@
+---
+Desenvolvimento em C.
+# 🔢 Adivinhe o Número (Guess the Number) - Projeto Arduino com Teclado 4x4
+
+Um jogo clássico de adivinhação implementado em Arduino, utilizando um teclado matricial 4x4 para a entrada de dados e a comunicação serial para fornecer feedback ao jogador.
+
+## ✨ Funcionalidades
+
+* **Geração Aleatória:** O número secreto é gerado aleatoriamente (entre 1 e 100) no início de cada jogo, garantindo uma nova experiência a cada rodada.
+* **Entrada via Teclado Matricial 4x4:** A entrada de palpites é feita de forma prática usando um teclado.
+* **Feedback Serial:** As mensagens de "Muito Alto", "Muito Baixo" ou "Acertou!" são exibidas no Monitor Serial do Arduino IDE.
+* **Contagem de Tentativas:** O número de tentativas é rastreado e exibido ao final do jogo.
+
+## 🕹️ Como Jogar
+
+O objetivo é adivinhar o número secreto entre **1 e 100**.
+
+### Comandos do Teclado
+
+| Tecla | Função | Descrição |
+| :---: | :---: | :--- |
+| **0-9** | **Dígitos** | Digita o palpite atual. (O palpite não pode exceder 100). |
+| **\#** | **Enviar** | Envia o número digitado para verificação. |
+| **\*** | **Limpar** | Limpa o palpite atual e reinicia a entrada de dígitos. |
+| **0 seguido de \#** | **Encerrar** | Encerra o jogo atual, revela o número secreto e inicia um novo. |
+
+## 🛠️ Requisitos de Hardware
+
+Para rodar este projeto, você precisará dos seguintes componentes:
+
+* **Placa Arduino** 
+* **Teclado Matricial 4x4**
+* **Cabos Jumper**
+* **Resistor (opcional, dependendo do teclado)**
+
+### Conexões dos Pinos
+
+| Componente | Tipo | Pino do Arduino |
+| :---: | :---: | :---: |
+| **Linha 1** | INPUT\_PULLUP | **12** |
+| **Linha 2** | INPUT\_PULLUP | **11** |
+| **Linha 3** | INPUT\_PULLUP | **10** |
+| **Linha 4** | INPUT\_PULLUP | **9** |
+| **Coluna 1** | OUTPUT | **8** |
+| **Coluna 2** | OUTPUT | **7** |
+| **Coluna 3** | OUTPUT | **6** |
+| **Coluna 4** | OUTPUT | **5** |
+
+## 📐 Mapeamento do Teclado
+
+Este é o layout de tecla que o código espera:
+
+| Pino 8 | Pino 7 | Pino 6 | Pino 5 |
+| :---: | :---: | :---: | :---: |
+| **1** | **2** | **3** | **A** |
+| **4** | **5** | **6** | **B** |
+| **7** | **8** | **9** | **C** |
+| **\*** | **0** | **\#** | **D** |
+
+> **Nota:** As teclas `A`, `B`, `C`, e `D` são lidas, mas **não executam nenhuma ação** no jogo.
+
+## 🚀 Instalação e Uso
+
+1.  **Conexão:** Conecte o teclado matricial ao Arduino conforme as especificações de pinos acima.
+2.  **Upload:** Abra o código `.ino` no Arduino IDE e faça o upload para sua placa.
+3.  **Monitor Serial:**.
+4.  **Jogue!** Siga as instruções no Monitor Serial e use o teclado para digitar seus palpites.
+
+---
+Desenvolvimento em MIPS Assembly.
+
+# 💻 Adivinhe o Número (Guess the Number) - MIPS Assembly (MARS Simulator)
+
+Este projeto implementa o clássico jogo de adivinhação de números (entre 1 e 100) utilizando a linguagem **MIPS Assembly**. O código é destinado a ser executado no simulador **MARS (MIPS Assembler and Runtime Simulator)**.
+
+## ✨ Funcionalidades
+
+* **Geração de Número Secreto:** O número alvo é gerado de forma pseudo-aleatória com base em uma **semente (seed)** fornecida pelo usuário no início do jogo, seguindo a lógica `target = (seed % 100) + 1`.
+* **Contagem de Tentativas:** Rastrea e exibe o número de tentativas necessárias para acertar o alvo.
+* **Feedback ao Jogador:** Fornece feedback indicando se o palpite é "Muito alto!" ou "Muito baixo!".
+* **Reinício de Jogo:** Após acertar o número, o jogo pode ser reiniciado com uma nova semente.
+* **Condição de Saída:** O jogador pode encerrar o jogo a qualquer momento digitando o palpite **0** (zero), que também revela o número secreto.
+
+## 🛠️ Requisitos de Software
+
+* **MARS (MIPS Assembler and Runtime Simulator):** Este simulador é necessário para montar e executar o código.
+
+## 🎮 Instruções do Jogo
+
+1.  **Início:** O programa solicitará a entrada de uma **semente (seed)**. Digite qualquer número inteiro.
+2.  **Palpite:** Digite seu palpite (um número entre 1 e 100) e pressione **Enter**.
+3.  **Feedback:** O console mostrará "Muito alto!" ou "Muito baixo!".
+4.  **Vitória:** Se acertar, o jogo exibirá o número de tentativas e solicitará uma nova semente para começar um novo jogo.
+5.  **Sair:** Para encerrar o jogo e descobrir o número secreto, digite **0 (zero)** como palpite.
+
+## 🧠 Detalhes Técnicos (Registradores)
+
+| Registrador | Uso | Descrição |
+| :---: | :--- | :--- |
+| **\$t0** | Seed | Armazena a semente de geração de números. |
+| **\$t1** | 100 | Constante usada para a operação módulo. |
+| **\$t2** | Target | Armazena o número secreto (alvo). |
+| **\$t3** | Guess | Armazena o palpite atual lido do usuário. |
+| **\$t4** | Attempts | Contador de tentativas lido/escrito da memória. |
+| **\$t5** | Comparação | Usado para armazenar o resultado da comparação `slt` (`slight`). |
+
+## 📦 Seção `.data`
+
+| Rótulo | Uso | Tipo |
+| :---: | :--- | :---: |
+| `welcome_msg` | Mensagem de boas-vindas e solicitação de seed. | `.asciiz` |
+| `prompt_msg` | Solicitação do palpite. | `.asciiz` |
+| `attempts` | Armazena o número total de tentativas. | `.word` |
+| `target` | Armazena o número secreto gerado. | `.word` |
+
+---
+Desenvolvido em MIPS Assembly.
+
+---
+
+## 🧑‍💻 Autores
+
+* Eliel Bombieri
+* Kauan Silvani
+* Pedro Tormen
