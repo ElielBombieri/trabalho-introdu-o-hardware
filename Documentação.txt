@@ -120,6 +120,10 @@ Desenvolvido em MIPS Assembly.
 
 ## 🧑‍💻 Autores
 
-* Eliel Bombieri
-* Kauan Silvani
-* Pedro Tormen
+* Eliel Bombieri (425181)
+  -Codigo em Assembly
+* Kauan Silvani (443589)
+  -Codigo em C
+  -Tinkercad
+* Pedro Tormen (445046)
+  -README
