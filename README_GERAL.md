@@ -1,6 +1,6 @@
 ---
 Desenvolvimento em C.
-#  (Guess the Number) - Projeto Arduino com Teclado 4x4
+# Guess the Number - Projeto Arduino com Teclado 4x4
 
 Um jogo clássico de adivinhação implementado em Arduino, utilizando um teclado matricial 4x4 para a entrada de dados e a comunicação serial para fornecer feedback ao jogador.
 
@@ -144,14 +144,16 @@ Contém a lógica de execução do programa, começando na *label* `main`.
 
 ---
 
+Circuitos e Simulação
+Circuito no Tinkercad (Arduino): https://www.tinkercad.com/things/9ETTVZabVJw-guess-the-number
 ---
 
 ## 🧑‍💻 Autores
 
-* Eliel Bombieri (425181)
+* Eliel Bombieri Biberg(425181)
   -Codigo em Assembly
-* Kauan Silvani (443589)
+* Kauan Pompermaier Silvani (443589)
   -Codigo em C
   -Tinkercad
-* Pedro Tormen (445046)
+* Pedro Henrique Tormen (445046)
   -README
